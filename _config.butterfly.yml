@@ -1,0 +1,131 @@
+# Butterfly 主题定制（与主题默认配置深度合并，仅写覆盖项）
+# 文档: https://butterfly.js.org/posts/4aa8abbe/
+
+# ---------- 导航 ----------
+nav:
+  logo:
+  display_title: true
+
+menu:
+  首页: / || fas fa-home
+  归档: /archives/ || fas fa-archive
+  分类: /categories/ || fas fa-folder-open
+  标签: /tags/ || fas fa-tags
+  关于: /about/ || fas fa-user
+
+# ---------- 首页 ----------
+index_post_content:
+  method: 2          # 1=摘要 2=纯文字截断 3=全文
+  length: 200
+
+# ---------- 文章页 ----------
+post_edit:
+  enable: false
+
+post_copyright:
+  enable: true
+  decode: true
+  author:
+  author_link:
+  source:
+  info:
+
+post_pagination: 1   # 上一篇/下一篇
+
+related_post:
+  enable: true
+  limit: 6
+  date_type: created
+
+anchor:
+  enable: true
+  always_show: false
+  icon: '#'
+
+# ---------- 阅读体验 ----------
+highlight_theme: darker
+highlight_copy: true
+highlight_lang: true
+highlight_shrink: false
+highlight_height_limit: 460
+
+code_word_wrap: false
+
+copy:
+  enable: true
+  copyright:
+    enable: false
+    limit: 50
+
+toc:
+  post: true
+  page: false
+  number: true
+  expand: true
+  style_simple: false
+  scroll_percent: true
+
+readmode: true
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: false
+
+# 字数统计 / 阅读时长（需 hexo-wordcount）
+wordcount:
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+
+# ---------- 社交与页脚 ----------
+social:
+  fab fa-github: https://github.com/ || Github
+
+footer:
+  owner:
+    enable: true
+    since: 2026
+  custom_text:
+  copyright: true
+
+# ---------- 美化 ----------
+beautify:
+  enable: true
+  field: post
+  title-prefix-icon: '\f0c1'
+  title-prefix-icon-color: '#F47466'
+
+# 文章顶部封面大图
+cover:
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+  position: both
+  default_cover:
+
+# 背景
+background:
+
+# 打字特效副标题
+subtitle:
+  enable: true
+  effect: true
+  typed_option:
+  source: false
+  sub:
+    - 定点数 · 回测引擎 · 低延迟系统
+    - Determinism first, latency second, elegance always.
+    - 把每一纳秒都当作资源来管理
+
+# ---------- 注入自定义样式 ----------
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/custom.css">
+  bottom:
+
+# ---------- 本地搜索 ----------
+local_search:
+  enable: true
+  preload: false
+  CDN:

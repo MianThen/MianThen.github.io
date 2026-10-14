@@ -1,0 +1,16 @@
+# 依赖
+node_modules/
+
+# Hexo 构建产物与缓存
+public/
+db.json
+.deploy_git/
+.deploy*/
+
+# 本地预览与编辑器
+*.log
+.venv/
+.DS_Store
+.idea/
+.vscode/
+*.swp

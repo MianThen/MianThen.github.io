@@ -1,0 +1,200 @@
+/* ===========================================================
+   Quant Notes — Butterfly 定制样式
+   设计基调：克制的深色点缀 + 高可读排版 + 强化结构化导航
+   原则：只增强层次与可读性，不覆盖主题的交互逻辑
+   =========================================================== */
+
+/* ---------- 1. 全局排版：正文可读性 ---------- */
+:root {
+  --qn-accent: #3563E9;
+  --qn-accent-soft: rgba(53, 99, 233, 0.08);
+  --qn-radius: 12px;
+}
+
+/* 正文行高与字号：长文阅读舒适区 */
+#article-container {
+  line-height: 1.9;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+}
+
+#article-container p {
+  margin: 0 0 1.15em;
+}
+
+/* 标题层级：用左侧色条强化结构，让读者一眼看清文章骨架 */
+#article-container h2,
+#article-container h3,
+#article-container h4 {
+  position: relative;
+  padding-left: 0.72rem;
+  border-left: 4px solid var(--qn-accent);
+  transition: border-color 0.25s ease;
+}
+
+#article-container h3 {
+  border-left-width: 3px;
+  border-left-color: #7a9bf5;
+}
+
+#article-container h4 {
+  border-left-width: 2px;
+  border-left-color: #b3c4fa;
+}
+
+/* ---------- 2. 行内代码与引用块 ---------- */
+#article-container code:not([class*='hljs']) {
+  padding: 0.15em 0.42em;
+  border-radius: 5px;
+  font-size: 0.9em;
+  background: var(--qn-accent-soft);
+  word-break: break-word;
+}
+
+#article-container blockquote {
+  border-left: 4px solid var(--qn-accent);
+  border-radius: 0 var(--qn-radius) var(--qn-radius) 0;
+  padding: 0.9rem 1.1rem;
+}
+
+/* ---------- 3. 代码块：工程博客的核心视觉 ---------- */
+#article-container figure.highlight,
+#article-container pre {
+  border-radius: var(--qn-radius);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+}
+
+#article-container figure.highlight {
+  margin: 1.5rem 0;
+}
+
+/* 代码块滚动条：细一点，不抢视觉 */
+#article-container figure.highlight pre::-webkit-scrollbar {
+  height: 6px;
+}
+#article-container figure.highlight pre::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+}
+
+/* 行号列弱化，让代码主体更突出 */
+#article-container figure.highlight .line-numbers-rows {
+  opacity: 0.55;
+}
+
+/* ---------- 4. 表格：数据型内容的可读性 ---------- */
+#article-container table {
+  border-radius: var(--qn-radius);
+  overflow: hidden;
+  font-size: 0.95em;
+}
+
+#article-container table th {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 斑马纹弱化，避免与主题底色冲突 */
+#article-container table tr:nth-child(2n) {
+  background: rgba(127, 127, 127, 0.04);
+}
+
+/* ---------- 5. 图片与公式 ---------- */
+#article-container img {
+  border-radius: var(--qn-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#article-container img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- 6. 卡片与文章列表 ---------- */
+#recent-posts > .recent-post-item {
+  border-radius: var(--qn-radius);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+#recent-posts > .recent-post-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.13);
+}
+
+#recent-posts > .recent-post-item .post_cover img {
+  transition: transform 0.5s ease;
+}
+
+#recent-posts > .recent-post-item:hover .post_cover img {
+  transform: scale(1.05);
+}
+
+/* ---------- 7. 侧边栏卡片 ---------- */
+.card-widget {
+  border-radius: var(--qn-radius);
+}
+
+/* 目录：当前阅读位置更醒目，强化长文导航 */
+#card-toc .toc-content .toc-link.active {
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* ---------- 8. 标签与分类：形成统一的"知识网络"视觉 ---------- */
+.card-tag-cloud a,
+.tag-cloud a {
+  border-radius: 6px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.card-tag-cloud a:hover,
+.tag-cloud a:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+/* ---------- 9. 阅读进度条与回到顶部 ---------- */
+#reading-bar {
+  height: 3px;
+}
+
+/* ---------- 10. 移动端适配：字号与间距收敛 ---------- */
+@media screen and (max-width: 768px) {
+  #article-container {
+    font-size: 15.5px;
+    line-height: 1.85;
+  }
+
+  #article-container h2,
+  #article-container h3,
+  #article-container h4 {
+    padding-left: 0.55rem;
+  }
+
+  #recent-posts > .recent-post-item {
+    border-radius: 10px;
+  }
+}
+
+/* ---------- 11. 打印：让文章可直接存档 ---------- */
+@media print {
+  #sidebar,
+  #rightside,
+  .post-copyright,
+  #post-comment,
+  #pagination {
+    display: none !important;
+  }
+
+  #article-container {
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+
+  #article-container figure.highlight,
+  #article-container pre {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
